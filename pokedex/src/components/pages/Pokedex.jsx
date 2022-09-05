@@ -31,11 +31,11 @@ const Pokedex = () => {
                 <input type="text" value={searchPokemons} onChange={event => setSearchPokemons(event.target.value)}  />
             </div> */}
             {pokemons.map((pokemon) => (
-                <div className="card">
-                    <h5 name={pokemon.name} className="pokemon-name">
-                        {pokemon.name}
-                    </h5>
-                </div>
+                    <div className="card">
+                        <p name={pokemon.name} className="pokemon-name">
+                            {pokemon.name}
+                        </p>
+                    </div>
             ))}
 
             {/* {searchPokemons.length > 0 ? (

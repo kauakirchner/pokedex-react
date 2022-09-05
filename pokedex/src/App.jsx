@@ -1,9 +1,9 @@
-import { useState } from 'react'
+import React from 'react'
 import Pokedex from './components/pages/Pokedex'
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <Pokedex />
     </div>
   )

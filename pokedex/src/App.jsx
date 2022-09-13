@@ -1,12 +1,12 @@
 import React from 'react'
 import Pokedex from './components/pages/Pokedex'
-import './styles/app.css'
+import { Container } from './styles/components/styles'
 
 function App() {
   return (
-    <div className="container">
+    <Container>
       <Pokedex />
-    </div>
+    </Container>
   )
 }
 export default App

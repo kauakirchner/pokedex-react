@@ -1,24 +1,27 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
+import { Container, Card, CardText,MoreInfosCard, Button } from "../../styles/components/styles";
 import '../../styles/pokedex.css'
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 const Pokedex = () => {
     const [pokemons, setPokemons] = useState([]);
-    const [filteredPokemons, setFilteredPokemons] = useState([]);
-    const [searchPokemons, setSearchPokemons] = useState('');
-    const pokemonId = pokemons.map(pokemon => {
-        return pokemon.id
-    })
+    let [showMoreInfos, setShowMoreInfos] = useState(false)
+
+
+    const showInfos = () => {
+        setShowMoreInfos(true);
+        console.log(showMoreInfos);
+    }
+
+    const closeMoreInfos = () => {
+        setShowMoreInfos(false);
+        console.log(showMoreInfos);
+    }
 
     useEffect(() => {
         getPokemons();
     }, [])
-
-    useEffect(() => {
-        setFilteredPokemons(pokemons.filter((pokemon) => {
-            pokemon.name.includes(searchPokemons)
-        }))
-    },[searchPokemons])
 
     const getPokemons = async () => {
         axios.get('https://pokeapi.co/api/v2/pokemon?limit=18')
@@ -27,16 +30,26 @@ const Pokedex = () => {
             return error;
         })
     }
-    return (
-        <div className="container">
-            {pokemons.map((pokemon) => (
-                    <div className="card">
-                        <p name={pokemon.name} className="pokemon-name">
-                            {pokemon.name} 
-                        </p>
-                    </div>
+
+    if (pokemons.length < 1) {
+        return null;
+    }
+    return ( 
+        <Container>
+            {pokemons.map(pokemon => (
+                <Card key={pokemon.url} className="card" >
+                    <CardText name={pokemon.name}> {pokemon.name} </CardText>
+                    <Button onClick={showInfos}>Show More</Button>
+                </Card>
             ))}
-        </div>
+            {showMoreInfos && (
+                <MoreInfosCard>
+                    <CardText onClick={closeMoreInfos}>
+                        More infos
+                    </CardText>
+                </MoreInfosCard>
+            )}
+        </Container>
     )
 }
 

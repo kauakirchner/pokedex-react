@@ -36,8 +36,8 @@ const CardText = styled.p`
 `
 const MoreInfosCard = styled.div`
     min-width: 200px;
-    width: 220px;
-    height: 220px;
+    width: 200px;
+    height: 200px;
     max-width: 100%;
     box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.45);
     margin: 10px;

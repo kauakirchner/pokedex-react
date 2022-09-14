@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
-import { Container, Card, CardText,MoreInfosCard, Button } from "../../styles/components/styles";
-import '../../styles/pokedex.css'
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { Container, Card, CardText, Button } from "../../styles/components/styles";
+import MoreInfosPokemon from "../shared/MoreInfosPokemon";
 
 const Pokedex = () => {
     const [pokemons, setPokemons] = useState([]);
-    let [showMoreInfos, setShowMoreInfos] = useState(false)
+    const [showMoreInfos, setShowMoreInfos] = useState(false)
 
 
     const showInfos = () => {
@@ -16,7 +15,8 @@ const Pokedex = () => {
 
     const closeMoreInfos = () => {
         setShowMoreInfos(false);
-        console.log(showMoreInfos);
+        console.log('clicou')
+        
     }
 
     useEffect(() => {
@@ -42,12 +42,11 @@ const Pokedex = () => {
                     <Button onClick={showInfos}>Show More</Button>
                 </Card>
             ))}
-            {showMoreInfos && (
-                <MoreInfosCard>
-                    <CardText onClick={closeMoreInfos}>
-                        More infos
-                    </CardText>
-                </MoreInfosCard>
+            {showMoreInfos === true && (
+                <Container>
+                    <MoreInfosPokemon />
+                    <Button onClick={closeMoreInfos}>Close</Button> 
+                </Container>
             )}
         </Container>
     )

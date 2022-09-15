@@ -33,19 +33,6 @@ const Pokedex = () => {
     }
     return ( 
         <Container>
-            {/* {pokemons.map(pokemon => (
-                <Card key={pokemon.url} className="card" >
-                    <CardText name={pokemon.name}> {pokemon.name} </CardText>
-                    <Button onClick={showInfos}>Show More</Button>
-                </Card>
-            ))}
-            {showMoreInfos === true && (
-                <Container>
-                    <MoreInfosPokemon>
-                        <Button onClick={closeMoreInfos}>Close</Button> 
-                    </MoreInfosPokemon>
-                </Container>
-            )} */}
             {showMoreInfos === false ? (
                 pokemons.map(pokemon => (
                     <Card key={pokemon.url} className="card" >

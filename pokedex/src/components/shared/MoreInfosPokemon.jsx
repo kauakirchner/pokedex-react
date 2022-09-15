@@ -29,6 +29,7 @@ const MoreInfosPokemon = (props) => {
             {pokemonAbilites.map(pokemon => (
                 <Card key={pokemon.url}>
                     <CardText abilite={pokemon.url}>{pokemon.name}</CardText>
+                    <Button onClick={props.onClick}>Close</Button>
                 </Card>
             ))}
         </Container> 

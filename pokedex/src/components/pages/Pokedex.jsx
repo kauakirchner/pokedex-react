@@ -10,13 +10,10 @@ const Pokedex = () => {
 
     const showInfos = () => {
         setShowMoreInfos(true);
-        console.log(showMoreInfos);
     }
 
     const closeMoreInfos = () => {
         setShowMoreInfos(false);
-        console.log('clicou')
-        
     }
 
     useEffect(() => {
@@ -36,7 +33,7 @@ const Pokedex = () => {
     }
     return ( 
         <Container>
-            {pokemons.map(pokemon => (
+            {/* {pokemons.map(pokemon => (
                 <Card key={pokemon.url} className="card" >
                     <CardText name={pokemon.name}> {pokemon.name} </CardText>
                     <Button onClick={showInfos}>Show More</Button>
@@ -44,8 +41,23 @@ const Pokedex = () => {
             ))}
             {showMoreInfos === true && (
                 <Container>
-                    <MoreInfosPokemon />
-                    <Button onClick={closeMoreInfos}>Close</Button> 
+                    <MoreInfosPokemon>
+                        <Button onClick={closeMoreInfos}>Close</Button> 
+                    </MoreInfosPokemon>
+                </Container>
+            )} */}
+            {showMoreInfos === false ? (
+                pokemons.map(pokemon => (
+                    <Card key={pokemon.url} className="card" >
+                        <CardText name={pokemon.name}> {pokemon.name} </CardText>
+                        <Button onClick={showInfos}>Show More</Button>
+                    </Card>
+                ))
+            ) : (
+                <Container>
+                    <MoreInfosPokemon>
+                        <Button onClick={closeMoreInfos}>Close</Button> 
+                    </MoreInfosPokemon>
                 </Container>
             )}
         </Container>

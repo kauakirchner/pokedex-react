@@ -7,7 +7,6 @@ const Pokedex = () => {
     const [pokemons, setPokemons] = useState([]);
     const [showMoreInfos, setShowMoreInfos] = useState(false)
 
-
     const showInfos = () => {
         setShowMoreInfos(true);
     }
@@ -42,7 +41,7 @@ const Pokedex = () => {
                 ))
             ) : (
                 <MoreInfosPokemon onClick={closeMoreInfos}>
-                    <span>testeeee</span>
+                    <span>Close</span>
                 </MoreInfosPokemon>
             )}
         </Container>

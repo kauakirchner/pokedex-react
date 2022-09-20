@@ -15,12 +15,10 @@ const Card = styled.div`
     align-items: center;
     justify-content: center;
     text-align: center;
-    animation: fade-in-card-animation;
-    animation-duration: 2s;
     border-radius: 8px;
     background-color: #111;
     animation: ${fadeIn};
-    animation-duration: 2s;
+    animation-duration: .7s;
 
     &:hover{
         transform: scale(1.040);
@@ -30,9 +28,9 @@ const Card = styled.div`
 
 const CardText = styled.p`
     text-decoration: none;
-    color: ${(props) => props.color};
+    color: #fff;
     list-style-type: none;
-    border-bottom: 3px solid #271831;0
+    border-bottom: 3px solid #271831;
 `
 const MoreInfosCard = styled.div`
     min-width: 200px;

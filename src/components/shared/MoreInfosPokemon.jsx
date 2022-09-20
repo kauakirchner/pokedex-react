@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { CardText, Container } from "../../styles/components/styles";
+import { Button, CardText, Container, Card } from "../../styles/components/styles";
 import axios from "axios";
 
 const MoreInfosPokemon = ({ onClick, children }) => {
@@ -26,14 +26,12 @@ const MoreInfosPokemon = ({ onClick, children }) => {
 
     return (
         <Container>
-            <ul>
             {pokemonAbilites && pokemonAbilites.map(pokemon => (
-                <li key={pokemon.url}>
-                    <CardText color="#000">{pokemon.name}</CardText>
-                    <span onClick={onClick}>{children}</span>
-                </li>
+                <Card key={pokemon.url}>
+                    <CardText color="#ffff">{pokemon.name}</CardText>
+                    <Button onClick={onClick}>{children}</Button>
+                </Card>
             ))}
-            </ul>
         </Container> 
     )
 }
